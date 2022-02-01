@@ -11,7 +11,8 @@ namespace Entity.Concrete
     public class Susbcribe:IEntity
     {
 
-        [Key] public int SubscribeId { get; set; }
+        [Key]
+        public int SubscribeId { get; set; }
         public string SubscribePrice { get; set; }
         public string SubscribeType { get; set; } 
         public string SubscribeAdvantages { get; set; }
