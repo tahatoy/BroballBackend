@@ -17,5 +17,6 @@ namespace Entity.Concrete
         public int Drawn { get; set; }
         public int Lost { get; set; }
         public int Points { get; set; }
+        public int LeagueId { get; set; }
     }
 }

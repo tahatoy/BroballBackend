@@ -11,6 +11,6 @@ namespace Entity.Concrete
     {
         public int LeagueId { get; set; }
         public string LeagueName { get; set; }
-        public int TeamId { get; set; }
+  
     }
 }

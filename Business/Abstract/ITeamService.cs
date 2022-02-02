@@ -10,6 +10,7 @@ namespace Business.Abstract
 {
     public interface ITeamService
     {
+        IDataResult<List<Team>> GetTeamsByLeagueId(int id);
         IDataResult<List<Team>> GetAll();
         IResult Add(Team team);
         IResult Delete(Team team);
