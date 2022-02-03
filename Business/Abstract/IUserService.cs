@@ -18,6 +18,7 @@ namespace Business.Abstract
 
         IResult GetUserById(int userId);
 
+        IDataResult<List<User>> GetUsersByUserId(int id);
         IDataResult<List<User>> GetUsersByCityId(int id);
         IDataResult<List<User>> GetUsersByLeagueId(int id);
 

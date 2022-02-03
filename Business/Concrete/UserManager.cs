@@ -121,6 +121,13 @@ namespace Business.Concrete
             return false;
         }
 
+        public IDataResult<List<User>> GetUsersByUserId(int id)
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(p => p.UserId == id));
+        }
+
+
+
         public IDataResult<List<User>> GetUsersByLeagueId(int id)
         {
             throw new NotImplementedException();
@@ -130,6 +137,8 @@ namespace Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+      
 
 
 
