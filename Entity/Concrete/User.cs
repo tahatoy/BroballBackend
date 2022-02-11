@@ -39,7 +39,6 @@ namespace Entity.Concrete
         public string Facebook { get; set; }
 
 
-
     }
 
         

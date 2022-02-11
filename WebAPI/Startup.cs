@@ -29,6 +29,8 @@ namespace WebAPI
 
         public IConfiguration Configuration { get; }
 
+      
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -68,12 +70,32 @@ namespace WebAPI
             services.AddSingleton<ISusbcribeDal, EfSusbcribeDal>();
 
 
+            services.AddSingleton<ICommentService, CommentManager>();
+            services.AddSingleton<ICommentDal, EfCommentDal>();
+
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
         }
+
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -83,8 +105,9 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
-            
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().WithMethods("PUT", "DELETE", "POST", "GET"));
+            app.UseCors(builder => builder.WithOrigins("http://localhost:44318").AllowAnyHeader().WithMethods("PUT", "DELETE", "POST", "GET"));
+
 
             app.UseHttpsRedirection();
 

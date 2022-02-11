@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }
-
+        public DbSet<Comment> Comment { get; set; }
         public DbSet<Field> Fields { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Team> Teams { get; set; }

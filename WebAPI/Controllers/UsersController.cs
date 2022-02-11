@@ -3,6 +3,7 @@ using Business.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entity.Concrete;
+
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+  
     public class UsersController : Controller
     {
         IUserService _userService;
@@ -30,7 +32,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("/post")]
-        public IActionResult Post(User user)
+        public IActionResult Post([FromBody]User user)
         {
             var result = _userService.Add(user);
             if (result.Success)
@@ -39,8 +41,8 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPut("update")]
-        public IActionResult Update(User user)
+        [HttpPut("/putUser")]
+        public IActionResult Update([FromBody]User user)
         {
             var result = _userService.Update(user);
             if (result.Success)
@@ -49,7 +51,6 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
 
         [HttpDelete("delete")]
         public IActionResult Delete(User user)
@@ -60,11 +61,9 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
-
-
-
+                                                                                       
+                
         [HttpGet("getusersbycitiesid")]
         public IActionResult GetUsersByCities(int citiesId)
         {
@@ -87,20 +86,132 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-
+     
         [HttpGet("/Login")]
             public IResult Login(string mail, string password)
             {
                 return _userService.Login(mail, password);
             }
 
-            [HttpGet("/getUserByEmail")]
-            public IResult GetUserByEmail(string mail)
+            [HttpGet("getUserByEmail")]
+            public IActionResult GetUserByEmail(string mail)
             {
-                return _userService.GetUserByEmail(mail);
-
+                var result = _userService.GetUserByEmail(mail);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                 return BadRequest(result);
             }
+
+        [HttpGet("getPasswordByUserId")]
+        public IActionResult GetPasswordByUserId(int id)
+        {
+            var result = _userService.GetPasswordByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getStarPointByUserId")]
+        public IActionResult GetStarPointByUserId(int id)
+        {
+            var result = _userService.GetStarPointByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getTeamIdByUserId")]
+        public IActionResult GetTeamIdByUserId(int id)
+        {
+            var result = _userService.GetTeamIdByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getLeagueIdByUserId")]
+        public IActionResult GetLeagueIdByUserId(int id)
+        {
+            var result = _userService.GetLeagueIdByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getSubscribeIdByUserId")]
+        public IActionResult GetSubscribeIdByUserId(int id)
+        {
+            var result = _userService.GetSubscribeIdByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getAsistByUserId")]
+        public IActionResult GetAsistByUserId(int id)
+        {
+            var result = _userService.GetAsistByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getCitiesIdByUserId")]
+        public IActionResult GetCitiesIdByUserId(int id)
+        {
+            var result = _userService.GetCitiesIdByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getReasonForPenaltyByUserId")]
+        public IActionResult GetReasonForPenaltyByUserId(int id)
+        {
+            var result = _userService.GetReasonForPenaltyByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getScoreByUserId")]
+        public IActionResult GetScoreByUserId(int id)
+        {
+            var result = _userService.GetScoreByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getEmailByUserId")]
+        public IActionResult GetEmailByUserId(int id)
+        {
+            var result = _userService.GetEmailByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+
         [HttpGet("/getUserById")]
         public IResult GetUserById(int userId)
         {

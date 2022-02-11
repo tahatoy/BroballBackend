@@ -87,17 +87,14 @@ namespace Business.Concrete
             }
         }
         public IResult GetUserByEmail(string email)
-
         {
             var result = _userDal.Get(user => email == user.Email);
-            if (result == null)
-            {
-                return new ErrorResult("data yok");
-            }
-
+            if (result == null) return 
+                    new ErrorResult("data yok");
             return new SuccessDataResult<string>(result.UserId.ToString(), "data getirildi");
-
         }
+
+     
 
         public IResult SendMail(string email)
         {
@@ -125,9 +122,6 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(p => p.UserId == id));
         }
-
-
-
         public IDataResult<List<User>> GetUsersByLeagueId(int id)
         {
             throw new NotImplementedException();
@@ -138,7 +132,88 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-      
+
+
+        public IResult GetPasswordByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<string>(result.Password.ToString(), "data getirildi");
+        }
+
+
+        public IResult GetStarPointByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.StarPoint, "data getirildi");
+        }
+        public IResult GetEmailByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<string>(result.Email.ToString(), "data getirildi");
+        }
+        public IResult GetTeamIdByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.TeamId, "data getirildi");
+        }
+
+        public IResult GetLeagueIdByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.LeagueId, "data getirildi");
+        }
+
+        public IResult GetSubscribeIdByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.SubscribeId, "data getirildi");
+        }
+
+        public IResult GetAsistByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.Asist, "data getirildi");
+        }
+
+        public IResult GetCitiesIdByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.CitiesId, "data getirildi");
+        }
+
+        public IResult GetReasonForPenaltyByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<string>(result.ReasonforPenalty.ToString(), "data getirildi");
+        }
+
+        public IResult GetScoreByUserId(int id)
+        {
+            var result = _userDal.Get(user => id == user.UserId);
+            if (result == null) return
+                    new ErrorResult("data yok");
+            return new SuccessDataResult<int>(result.Score, "data getirildi");
+        }
+
+
 
 
 

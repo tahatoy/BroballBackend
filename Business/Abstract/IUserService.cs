@@ -21,11 +21,29 @@ namespace Business.Abstract
         IDataResult<List<User>> GetUsersByUserId(int id);
         IDataResult<List<User>> GetUsersByCityId(int id);
         IDataResult<List<User>> GetUsersByLeagueId(int id);
+      
+        
+        
+        IResult GetUserByEmail(string email);
+        IResult GetPasswordByUserId(int id);
+        IResult GetEmailByUserId(int id);
+        IResult GetStarPointByUserId(int id);
+        IResult GetTeamIdByUserId(int id);
+        IResult GetLeagueIdByUserId(int id);
+        IResult GetSubscribeIdByUserId(int id);
+       // IResult GetNickNameByUserId(int id);
+        IResult GetAsistByUserId(int id);
+        IResult GetCitiesIdByUserId(int id);
+        IResult GetReasonForPenaltyByUserId(int id);
+        IResult GetScoreByUserId(int id);
+        //IResult GetPasswordByUserId(int id);
+
 
         IDataResult<List<UserDetailDto>> GetUserDetailsByCityId(int id);
 
         IResult Login(string email, string password);
-        IResult GetUserByEmail(string email);
+    //    IResult SendComment(string email, string comment);
+       
         IResult SendMail(string email);
 
       
